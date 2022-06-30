@@ -1,7 +1,8 @@
-<?php 
-  require_once('common/header-login.php');
-?>
+<?php include "common/header.php";?> 
 
+<!-- Main Sidebar Container -->
+<?php include "common/left_menu.php";?> 
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -22,14 +23,14 @@
     </section>
     <!-- Main content -->
     <section class="content">
-    <!-- <div class="message bg-green text-center">
+    <div class="message bg-green text-center">
             <?php 
                 if( isset( $_SESSION["message"] ) ) {
                     echo "<p>". $_SESSION["message"] . "</p>";
                     unset($_SESSION["message"]);
                    }
                  ?> 
-        </div> -->
+        </div>
       <form method="post" action="main_function.php" onsubmit="return(validateForm())">
         <div class="row">
             <div class="col-md-6">
@@ -129,8 +130,132 @@
     <!-- Control Sidebar -->
     <?php include "common/right_menu.php";?> 
 </div>
+<!-- ./wrapper -->
+<?php include "common/footer.php"; ?>
 
 
-<?php 
-  require_once('common/footer-login.php');
-?>
+<script>
+
+    setTimeout(() => {
+        document.getElementByIdClassName("error_msg").innerHtml = "";
+    }, 5000);
+
+    function validateForm() {
+        var projects_name = document.getElementById("projects_name").value;
+        var projects_desc = document.getElementById("projects_desc").value;
+        // var status = document.getElementById("status").value;
+        var client_companies = document.getElementById("client_companies").value;
+        var pro_leader = document.getElementById("pro_leader").value;
+        var estimated_budgets = document.getElementById("estimated_budgets").value;
+        var Spent_Budget = document.getElementById("Spent_Budget").value;
+        var estimated_duration = document.getElementById("estimated_duration").value;
+
+
+            // Project Name validation
+            if (projects_name == "") {
+                document.getElementById("pro-name-error").innerHTML =
+                    "** Project name is required.";
+                return false;
+            } else {
+                if (!projects_name.match(/^[0-9a-zA-Z]/)) {
+                    document.getElementById("pro-name-error").innerHTML =
+                        "** Project name is invalid.";
+                    return false;
+            }
+
+            // Project Description validation
+            if (projects_desc == "") {
+                document.getElementById("pro-desc-error").innerHTML =
+                    "** Project description is required.";
+                return false;
+            } else {
+                if (!projects_desc.match(/^[A-Za-z]/)) {
+                    document.getElementById("pro-desc-error").innerHTML =
+                        "** Project description is invalid.";
+                    return false;
+                }
+            }
+            // Status validation
+            
+
+
+
+
+
+
+            // Client company validation
+
+            if (client_companies == "") {
+                document.getElementById("client-company-error").innerHTML =
+                    "** Client company name is required.";
+                return false;
+            } else {
+                if (!client_companies.match(/^[A-Za-z]/)) {
+                    document.getElementById("client-company-error").innerHTML =
+                        "** Client company name is invalid.";
+                    return false;
+                }
+            }
+
+
+            // Project leader validation
+
+            if (pro_leader == "") {
+                document.getElementById("pro-leader-error").innerHTML = "** Project leader name is required.";
+                return false;
+            } else {
+                if (!pro_leader.match(/^[A-Za-z]/)) {
+                    document.getElementById("pro-leader-error").innerHTML =
+                        "** Project leader name is invalid.";
+                    return false;
+                }
+            }
+
+            //estimated budget validation
+
+
+            if (estimated_budgets == "") {
+                document.getElementById("estimated-budget-error").innerHTML = "** Estimated Budget is required.";
+                return false;
+            } else {
+                if (!estimated_budgets.match(/^\d+/)) {
+                    document.getElementById("estimated-budget-error").innerHTML =
+                        "** Estimated budget is invalid.";
+                    return false;
+                }
+            }
+
+        //estimated total spend budget validation
+
+
+        if (Spent_Budget == "") {
+                document.getElementById("spend-budget-error").innerHTML = "** Total amount is required.";
+                return false;
+            } else {
+                if (!Spent_Budget.match(/^\d+/)) {
+                    document.getElementById("spend-budget-error").innerHTML =
+                        "** Total amount is invalid.";
+                    return false;
+                }
+            }
+
+        //Estimated Duration validation
+
+
+        if (estimated_duration == "") {
+                document.getElementById("estimated-duration-error").innerHTML = "** Project duration is required.";
+                return false;
+            } else {
+                if (!estimated_duration.match(/^\d+/)) {
+                    document.getElementById("estimated-duration-error").innerHTML =
+                        "** Project duration is invalid.";
+                    return false;
+                }
+            }
+            return true;
+    }
+
+    }
+
+
+</script>

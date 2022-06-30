@@ -8,8 +8,5 @@ class Home extends BaseController
     { echo "This is for test."; die;
         return view('welcome_message');
     }
-    public function add_project(){
-        return view('add_project');
-    }
-    
+   
 }

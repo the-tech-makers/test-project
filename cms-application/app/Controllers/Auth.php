@@ -14,9 +14,18 @@ class Auth extends BaseController
         return view('login');
     }
 
+    public function logout() 
+    {
+        return view('logout');
+    }
+
     public function register() 
     {
         return view('register');
+    }
+    public function recover_password()
+    {
+        return view('recover_password');
     }
     
 }

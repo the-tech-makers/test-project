@@ -36,7 +36,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="dashboard.php" class="nav-link">
+            <a href="dashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -54,29 +54,18 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="project.php" class="nav-link">
+                <a href="main_project" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Projects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="project_add.php" class="nav-link">
+                <a href="add_project" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Project</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="project_edit.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Edit Project</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="project_detail.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>  -->
+              
             </ul>
           </li>
         </ul>
