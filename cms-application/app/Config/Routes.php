@@ -38,11 +38,11 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/admin/auth', 'Auth::index');
 $routes->get('/login', 'Auth::login');
+$routes->post('/login', 'Auth::login_post');
+
 $routes->get('/logout', 'Auth::logout');
-// $routes->get('/project-add', 'Home::add_project');
 $routes->get('/register', 'Auth::register');
 $routes->get('/recover_password', 'Auth::recover_password');
-
 $routes->get('/add_project', 'Project::add_project');
 $routes->get('/main_project', 'Project::main_project');
 $routes->get('/project_detail', 'Project::project_detail');
