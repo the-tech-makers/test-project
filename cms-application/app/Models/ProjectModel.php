@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AuthModel extends Model
+class ProjectModel extends Model
 {
-    protected $table = 'admin_lte';
+    protected $table = 'tbl_projects';
     // .. other member variables
     protected $db;
 
@@ -19,11 +19,11 @@ class AuthModel extends Model
 
     public function insert_data($tbl_name, $data = array())
     {
-        $this->db->table($this->table)->insert($data);
+        $this->db->table($tbl_name)->insert($data);
         return $this->db->insertID();
     }
 
-    public function update_data($id, $data = array())
+    public function update_data($id, $tbl_name, $data = array())
     {
         $this->db->table($this->table)->update($data, array(
             "id" => $id,

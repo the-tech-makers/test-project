@@ -70,7 +70,7 @@ function time_elapsed_string($datetime, $full = false) {
                 ?> 
        </div> 
   
-   <!-- <?php echo 'data inserted successfully'; ?> -->
+   <!-- <?php// echo 'data inserted successfully'; ?> -->
      <!-- Default box -->
      <div class="card">
        <div class="card-header">
@@ -88,6 +88,9 @@ function time_elapsed_string($datetime, $full = false) {
        </div>
 
        <?php
+
+
+
         
         // $limit = 4;  
         //  if(isset($_GET['page'])) {
@@ -134,28 +137,29 @@ function time_elapsed_string($datetime, $full = false) {
              </thead>
              <tbody>
               <?php               
-              //  while( $row = $res->fetch_assoc() ) { 
+              foreach ($result as $key => $value) {
+
 
               ?>
                  <tr>
                      <td>
-                         <?php echo $row['id']; ?>
+                         <?php echo $value->id; ?>
                      </td>
                      <td>
                          <a>
-                           <?php echo $row['project_name']; ?>
+                           <?php echo $value->project_name; ?>
                          </a>
                          <br/>
-                         <span class="desc"> Created -<?php echo time_elapsed_string($row['added_on']); ?></span>
+                         <span class="desc"> Created -<?php echo time_elapsed_string($value->added_on); ?></span>
                      </td>
-                     <td><?php echo $row['client_company']; ?></td>
-                     <td><?php echo $row['project_leader']; ?></td>
-                     <td><?php echo $row['estimated_budget']; ?></td>
-                     <td><?php echo $row['total_amount']; ?></td>
-                     <td><?php echo $row['estimated_project_duration']; ?></td>
+                     <td><?php echo $value->client_company; ?></td>
+                     <td><?php echo $value->project_leader; ?></td>
+                     <td><?php echo $value->estimated_budget; ?></td>
+                     <td><?php echo $value->total_amount; ?></td>
+                     <td><?php echo $value->estimated_project_duration; ?></td>
                      <td class="project-state">
                        <?php 
-                           $status = $row['status'];
+                           $status = $value->status;
                            if($status == 1){ ?>
                              <span class="badge badge-on-hold bg-primary">On Hold</span>
                            <?php }else if($status == 2){ ?>
@@ -167,19 +171,19 @@ function time_elapsed_string($datetime, $full = false) {
                            <?php } ?>
                      </td>
              <td class="project-actions text-right">
-               <form method="post" action="main_function.php">
-                         <a class="btn btn-primary btn-sm" href="project_detail?project_id=<?php echo $row['id']; ?>" name="project_id">
+               <form method="post" action="<?php echo base_url();?>/main_project">
+                         <a class="btn btn-primary btn-sm" href="project_detail?project_id=<?php echo $value->id; ?>" name="project_id">
                              <i class="fas fa-folder">
                              </i>
                              View
                          </a>
                 
-                         <a class="btn btn-info btn-sm" href="project_edit?project_id=<?php echo $row['id']; ?>" name="project_id">
+                         <a class="btn btn-info btn-sm" href="project_edit?project_id=<?php echo $value->id; ?>" name="project_id">
                              <i class="fas fa-pencil-alt">
                              </i>
                              Edit
                          </a>
-                    <input type="hidden" name="project_id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="project_id" value="<?php echo $value->id; ?>">
                     <button onclick="return confirm('Are you sure you want to delete this item');" class="btn btn-danger btn-sm" type="submit" name="delete_btn">
                          <i class="fas fa-trash"></i>
                          Delete
@@ -189,7 +193,7 @@ function time_elapsed_string($datetime, $full = false) {
              </td>
                </tr>
              <?php
-               //}
+               }
             ?>
              </tbody>
          </table>

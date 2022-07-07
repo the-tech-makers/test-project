@@ -9,9 +9,20 @@
 
   <div class="card">
     <div class="card-body register-card-body">
+    <!-- <div class="message"> -->
+      <?php
+        //$message = $this->session->flashdata('message');
+        //if ($message != "") {
+         // echo "<div class='alert alert-success'>'.$message.'</div>";
+        //}
+      ?>
+      
+    <!-- </div> -->
+      
+
       <p class="login-box-msg">Register a new membership</p>
 
-      <form action="main_function.php" method="post">
+      <form action="<?php echo base_url();?>/register" method="post">
         <div class="input-group mb-3">
           <input type="text" name="name" class="form-control" placeholder="Full name">
           <div class="input-group-append">
@@ -60,18 +71,19 @@
           <!-- /.col -->
         </div>
       </form>
-      <a href="login.html" class="text-center">I already have a membership</a>
+      <a href="login" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
-    <div class="message">
-        <?php
-        if( isset($_SESSION["message"] ) ) {
-            echo "<p>". $_SESSION["message"] . "</p>";
-            unset($_SESSION["message"]);
-        }
+    <!-- <div class="message"> -->
+      <?php
+        // if( isset($_SESSION["message"] ) ) {
+        //     echo "<p>". $_SESSION["message"] . "</p>";
+        //     unset($_SESSION["message"]);
+        // }
         ?>
-    </div>
-  </div><!-- /.card -->
+    <!-- </div> -->
+  </div>
+  <!-- /.card -->
 </div>
 
 <?php 
