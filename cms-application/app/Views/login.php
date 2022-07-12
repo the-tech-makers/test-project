@@ -11,7 +11,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="main_function.php" method="post">
+      <form action="<?php echo base_url();?>/login" method="post">
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
@@ -46,10 +46,10 @@
       </form>
 
       <p class="mb-1">
-        <a href="forgot_password.php">I forgot my password</a>
+        <a href="recover_password">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.php" class="text-center">Register a new membership</a>
+        <a href="register" class="text-center">Register a new membership</a>
       </p>
     </div>
     <!-- /.login-card-body -->

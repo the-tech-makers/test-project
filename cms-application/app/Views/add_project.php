@@ -24,14 +24,14 @@
     <!-- Main content -->
     <section class="content">
     <div class="message bg-green text-center">
-            <?php 
+            <?php
                 if( isset( $_SESSION["message"] ) ) {
                     echo "<p>". $_SESSION["message"] . "</p>";
                     unset($_SESSION["message"]);
                    }
                  ?> 
         </div>
-      <form method="post" action="main_function.php" onsubmit="return(validateForm())">
+      <form method="post" action="<?php echo base_url();?>/add_project" onsubmit="return(validateForm())">
         <div class="row">
             <div class="col-md-6">
                 <div class="card card-primary">

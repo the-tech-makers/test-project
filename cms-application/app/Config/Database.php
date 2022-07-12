@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'cmcapplication',
+        'database' => 'db_new',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
